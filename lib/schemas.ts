@@ -6,8 +6,6 @@ export const auditInputSchema = z.object({
   industry: z.string().min(2),
   businessModel: z.enum(['Ecommerce', 'Lead Generation', 'SaaS', 'Clinic', 'Education', 'Local Service', 'App', 'Other']),
   conversionGoal: z.enum(['Purchase', 'Lead', 'Booking', 'Call', 'WhatsApp', 'Signup', 'App Install']),
-  trafficSource: z.enum(['Google Search', 'Meta Ads', 'TikTok Ads', 'Snapchat Ads', 'Organic', 'Email', 'Mixed']),
-  audienceStage: z.enum(['Cold', 'Warm', 'Hot', 'Retargeting', 'Mixed']),
   ticketSize: z.enum(['Low', 'Medium', 'High', 'Premium']),
   language: z.enum(['Arabic', 'English', 'Bilingual']),
   businessNotes: z.string().max(1000).optional().default('')
@@ -20,7 +18,12 @@ export const auditOutputSchema = z.object({
   executiveSummary: z.string(),
   overallScore: z.number().min(0).max(100),
   businessContext: z.object({
-    country: z.string(), industry: z.string(), businessModel: z.string(), conversionGoal: z.string(), trafficSource: z.string(), audienceStage: z.string(), ticketSize: z.string()
+    country: z.string(),
+    industry: z.string(),
+    businessModel: z.string(),
+    conversionGoal: z.string(),
+    ticketSize: z.string(),
+    language: z.string().optional()
   }),
   scorecard: z.array(z.object({ area: z.string(), score: z.number().min(0).max(100), status, whyItMatters: z.string() })),
   topConversionBlockers: z.array(z.object({ title: z.string(), severity: sev, whyItMatters: z.string() })),

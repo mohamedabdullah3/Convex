@@ -50,3 +50,7 @@ A Next.js MVP that generates evidence-based CRO audits from business context + U
 - Client-ready branded reports
 - Arabic report generation
 - Local compliance checker
+
+## Current MVP defaults
+- Simplified input form excludes `trafficSource` and `audienceStage`.
+- If `OPENAI_API_KEY` is missing, the API returns a demo audit with a clear notice so UI can still be tested.
